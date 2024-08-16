@@ -1,0 +1,19 @@
+name = "isolated-harlequin-porpoise"
+version = "1.0.0"
+
+[deployment]
+nodes = 1
+permissions = [
+  "https://api.coingecko.com",
+  "https://cloudflare-eth.com",
+]
+
+[build]
+dir = "target/wasm32-wasi/debug"
+entry = "isolated-harlequin-porpoise.wasm"
+command = "cargo build --target wasm32-wasi"
+
+[build_release]
+dir = "target/wasm32-wasi/release"
+entry = "isolated-harlequin-porpoise.wasm"
+command = "cargo build --target wasm32-wasi --release"
